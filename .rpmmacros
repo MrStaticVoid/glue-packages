@@ -1,0 +1,23 @@
+# Build in overiridden home directory
+%_topdir %(echo $HOME)
+
+# Add 'glue' tag to release
+%dist glue
+
+# Sign packages
+%_signature gpg
+%_gpg_path /cell_root/project/glue/l/linux/rpm_signing/keys
+%_gpg_name Glue RPM signer
+
+# Support parallel builds (from `rpmdev-setuptree`)
+%_smp_mflags %( \
+    [ -z "$RPM_BUILD_NCPUS" ] \\\
+        && RPM_BUILD_NCPUS="`/usr/bin/nproc 2>/dev/null || \\\
+                             /usr/bin/getconf _NPROCESSORS_ONLN`"; \\\
+    if [ "$RPM_BUILD_NCPUS" -gt 16 ]; then \\\
+        echo "-j16"; \\\
+    elif [ "$RPM_BUILD_NCPUS" -gt 3 ]; then \\\
+        echo "-j$RPM_BUILD_NCPUS"; \\\
+    else \\\
+        echo "-j3"; \\\
+    fi )
