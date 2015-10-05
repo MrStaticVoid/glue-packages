@@ -1,9 +1,6 @@
 # Build in overiridden home directory
 %_topdir %(echo $HOME)
 
-# Add 'glue' tag to release
-%dist glue
-
 # Sign packages
 %_signature gpg
 %_gpg_path /cell_root/project/glue/l/linux/rpm_signing/keys
