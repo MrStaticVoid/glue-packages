@@ -3,12 +3,18 @@
 ## Creating a new package ##
 
 ```
-rpmdev-newspec SPECS/package-name.spec
+$ rpmdev-newspec SPECS/package-name.spec
+```
+
+## Installing build dependencies ###
+
+```
+# yum-builddeps SPECS/package-name.spec
 ```
 
 ## Building a package ##
 
 ```
-./do spectool -R -g SPECS/package-name.spec
-./do rpmbuild -bb --sign --define 'dist .el7' SPECS/package-name.spec
+$ ./do spectool -R -g SPECS/package-name.spec
+$ ./do rpmbuild -bb --sign --define 'dist .el7' SPECS/package-name.spec
 ```
