@@ -1,0 +1,11 @@
+[Unit]
+Description=automount daemon that mounts devices and NFS hosts on demand
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/amd
+Type=forking
+ExecStart=/usr/sbin/amd -F /etc/amd.conf $AMDOPTS $OPTIONS $MOUNTPTS
+
+[Install]
+WantedBy=multi-user.target

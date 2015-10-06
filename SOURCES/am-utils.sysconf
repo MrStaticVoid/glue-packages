@@ -1,0 +1,3 @@
+#MOUNTPTS='/net /etc/amd.net'
+ADIR=/.automount
+AMDOPTS=

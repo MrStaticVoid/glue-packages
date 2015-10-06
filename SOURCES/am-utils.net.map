@@ -1,0 +1,5 @@
+localhost       type:=link;fs:=/
+*               host==${key};type:=link;fs:=/ \
+                hostd==${key};type:=link;fs:=/ \
+		fs:=${autodir}/${rhost}/root/${rfs};type:=host;rhost:=${key};rfs:=/;opts:=nosuid,nodev
+
