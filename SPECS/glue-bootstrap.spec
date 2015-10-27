@@ -6,7 +6,7 @@ Release:        1%{?dist}
 Summary:        System bootstrap tools for Glue systems
 License:	None
 URL:            https://github.com/MrStaticVoid/glue-bootstrap
-Source0:        https://github.com/MrStaticVoid/glue-bootstrap/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/MrStaticVoid/glue-bootstrap/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:	systemd
 Requires:       puppet-agent
