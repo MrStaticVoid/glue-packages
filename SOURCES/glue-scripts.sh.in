@@ -1,0 +1,3 @@
+if ! echo ${PATH} | grep -q @bindir@ ; then
+    PATH=@bindir@:${PATH}
+fi

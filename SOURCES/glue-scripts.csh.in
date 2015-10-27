@@ -1,0 +1,8 @@
+if ($?path) then
+if ( "${path}" !~ *@bindir@* ) then
+        set path = ( @bindir@ $path )
+endif
+endif
+else
+        set path = ( @bindir@ )
+endif
