@@ -1,12 +1,16 @@
 %define _prefix /usr/glue
 
+# See https://fedoraproject.org/wiki/Packaging:SourceURL?rd=Packaging/SourceURL#Git_Hosting_Services
+%define commit0 d834135f4e209f9f658a28cfd40e339170310c91
+%define gittag0 v2
+
 Name:           glue-bootstrap
-Version:        1
+Version:        2
 Release:        1%{?dist}
 Summary:        System bootstrap tools for Glue systems
 License:	None
-URL:            https://github.com/MrStaticVoid/glue-bootstrap
-Source0:        https://github.com/MrStaticVoid/glue-bootstrap/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+URL:            https://gitlab.umd.edu/it-platform/glue-bootstrap
+Source0:        https://gitlab.umd.edu/it-platform/glue-bootstrap/repository/archive.tar.gz?ref=%{gittag0}#/%{name}-%{version}.tar.gz
 
 BuildRequires:	systemd
 Requires:       puppet-agent
@@ -19,7 +23,7 @@ Script and service that checks that the Puppet SSL keypair exists and
 creates it if it doesn't.
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -qn %{name}-%{gittag0}-%{commit0}
 
 %build
 ./autogen.sh
